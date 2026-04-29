@@ -124,7 +124,7 @@ with st.sidebar:
 
 # --- ONGLETS ---
 
-tab1, tab2, tab3 = st.tabs(["➕ Nouvelle Saisie", "📊 Analyse Descriptive", "⚙️ Gestion & Modification"])
+tab1, tab2, tab3 = st.tabs([" Nouvelle Saisie", " Analyse Descriptive", " Gestion & Modification"])
 
 
 
@@ -146,11 +146,11 @@ with tab1:
 
             if any(char.isdigit() for char in nom_input):
 
-                st.warning("⚠️ Attention : Le nom ne doit pas contenir de chiffres.")
+                st.warning(" Attention : Le nom ne doit pas contenir de chiffres.")
 
             elif not re.match(r"^[A-Za-z\sÀ-ÿ\-']+$", nom_input):
 
-                st.warning("⚠️ Attention : Caractères spéciaux non autorisés dans le nom.")
+                st.warning(" Attention : Caractères spéciaux non autorisés dans le nom.")
 
 
 
@@ -190,13 +190,13 @@ with tab1:
 
                 df_all.to_csv(DATA_FILE, index=False)
 
-                st.success(f"✅ {nom_input} enregistré avec succès !")
+                st.success(f" {nom_input} enregistré avec succès !")
 
                 st.rerun()
 
             else:
 
-                st.error("❌ Erreur : Veuillez saisir un nom valide (lettres uniquement, pas de chiffres).")
+                st.error(" Erreur : Veuillez saisir un nom valide (lettres uniquement, pas de chiffres).")
 
 
 
@@ -208,7 +208,7 @@ with tab2:
 
     if not df.empty:
 
-        st.subheader("📋 Base de données")
+        st.subheader(" Base de données")
 
         st.dataframe(df, use_container_width=True)
 
@@ -252,7 +252,7 @@ with tab2:
 
         st.markdown("---")
 
-        st.header("🚨 Module de Prévention")
+        st.header(" Module de Prévention")
 
         noms_liste = df['Nom'].unique().tolist()
 
@@ -308,7 +308,7 @@ with tab3:
 
             if e_nom and any(char.isdigit() for char in e_nom):
 
-                st.warning("⚠️ Attention : Le nom ne doit pas contenir de chiffres.")
+                st.warning(" Attention : Le nom ne doit pas contenir de chiffres.")
 
             
 
@@ -362,7 +362,7 @@ with tab3:
 
         st.markdown("---")
 
-        if st.button("🔴 Supprimer définitivement ce Patient", type="primary"):
+        if st.button(" Supprimer définitivement ce Patient", type="primary"):
 
             df_del = pd.read_csv(DATA_FILE)
 
